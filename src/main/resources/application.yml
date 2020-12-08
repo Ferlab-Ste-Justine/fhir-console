@@ -1,0 +1,18 @@
+hapi:
+  fhir:
+    tester:
+        -
+          id: home
+          name: Local Tester
+          server_address: 'http://localhost:8080/fhir'
+          refuse_to_fetch_third_party_urls: false
+          fhir_version: R4
+
+authorized_roles:
+
+keycloak:
+  auth-server-url: http://localhost:8280/auth/
+  realm: fhir
+  resource: fhir-console
+  public-client: true
+  principal-attribute: preferred_username
