@@ -34,7 +34,7 @@ public class FhirTesterConfig {
      * you might want to use that instead of using the variable.
      */
     @Bean
-    public TesterConfig testerConfig(AppProperties appProperties) {
+    public TesterConfig testerConfig(AppProperties appProperties, BioProperties bioProperties) {
         TesterConfig retVal = new TesterConfig();
         appProperties.getTester().stream().forEach(t -> {
             retVal
@@ -43,7 +43,7 @@ public class FhirTesterConfig {
                     .withFhirVersion(t.getFhir_version())
                     .withBaseUrl(t.getServer_address())
                     .withName(t.getName());
-            retVal.setClientFactory(new ClientFactory());
+            retVal.setClientFactory(new ClientFactory(bioProperties));
             retVal.setRefuseToFetchThirdPartyUrls(
                     t.getRefuse_to_fetch_third_party_urls());
         });

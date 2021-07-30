@@ -16,3 +16,9 @@ keycloak:
   resource: fhir-console
   public-client: true
   principal-attribute: preferred_username
+
+bio:
+  keycloak:
+    auth-server-url: http://localhost:8280/auth/
+    realm: fhir
+    audience: fhir-console
