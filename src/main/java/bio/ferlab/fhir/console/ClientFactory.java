@@ -53,16 +53,12 @@ public class ClientFactory implements ITestingUiClientFactory {
                 String username = principal.getName();
                 theRequest.setAttribute("username", username);
             } catch (Exception e) {
-                log.error("Failed to create FHIR new client", extractCause(e));
+                log.error("Failed to create FHIR new client", e);
                 logout(theRequest);
             }
         }
 
         return client;
-    }
-    
-    private Throwable extractCause(Exception e) {
-        return e instanceof RuntimeException ? e.getCause() : e;
     }
     
     private void logout(HttpServletRequest request) {
