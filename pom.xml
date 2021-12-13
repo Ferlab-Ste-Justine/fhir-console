@@ -216,6 +216,13 @@ if you are using this file as a basis for your own project.
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
         <version>${spring_boot_version}</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>*</artifactId>
+            </exclusion>
+        </exclusions>
+
     </dependency>
 
     <dependency>
